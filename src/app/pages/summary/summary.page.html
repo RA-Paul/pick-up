@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div style="display: flex; align-items: center; gap: 5px">
+        <img src="assets/img/logo.png" alt="logo" width="35" />
+        <p style="font-weight: bolder">取貨平台</p>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toHomePage()">取貨清單</ion-button>
+      <ion-button>取貨進度</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="summary-card w-90" style="margin: auto">
+    <div>總數</div>
+    <div class="summary-card-quantity">
+      <div>0<span>(未取)</span></div>
+      <div>0<span>(已取)</span></div>
+    </div>
+  </div>
+
+  <div
+    class="w-90"
+    style="border: 1px solid rgb(160, 160, 160); margin: auto; margin-top: 2em"
+  ></div>
+
+  <div id="summary-container">
+    <ng-container *ngFor="let item of itemList;let i = index;">
+      <div class="summary-card w-30">
+        <div>{{ item.item }}</div>
+        <div class="summary-card-quantity">
+          <div>{{ item.unPickedUpQuantity }}<span>(未取)</span></div>
+          <div>{{ item.pickedUpQuantity }}<span>(已取)</span></div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

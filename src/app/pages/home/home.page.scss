@@ -1,0 +1,163 @@
+ion-content {
+  --background: rgb(224, 224, 224);
+}
+
+#search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 1.5em;
+  padding-left: 1em;
+  gap: 1em;
+}
+
+.card-container {
+  background-color: #fff;
+  border-top: 10px solid rgb(190, 170, 60);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 2px 5px #a0a0a0;
+  p {
+    margin-top: 0;
+    font-weight: bolder;
+    font-size: 1.4em;
+    span {
+      color: rgb(80, 80, 80);
+      font-size: 0.6em;
+    }
+  }
+
+  input,
+  select {
+    width: 100%;
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 1px solid rgb(80, 80, 80);
+    margin-bottom: 0.3em;
+  }
+}
+
+.w-1 {
+  width: 22em;
+}
+
+.w-2 {
+  width: 10em;
+}
+
+#filter-table {
+  width: 98%;
+  margin: auto;
+  box-shadow: 1px 2px 5px #a0a0a0;
+  thead {
+    background-color: rgb(190, 170, 60);
+    color: #fff;
+    tr {
+      th {
+        padding: 0.5em;
+      }
+    }
+  }
+  tbody {
+    tr {
+      background-color: #fff;
+      td {
+        text-align: center;
+        padding: 1em 0.5em;
+        ion-icon {
+          font-size: 1.5em;
+          cursor: pointer;
+        }
+      }
+      &:hover {
+        background-color: rgb(190, 170, 60);
+        color: #fff;
+
+        #star {
+          color: rgb(94, 84, 30);
+        }
+      }
+    }
+    .picked-up {
+      background-color: rgb(200, 200, 200);
+      color: rgb(120, 120, 120);
+    }
+  }
+}
+
+.container {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.show-md {
+  display: none;
+}
+
+#star {
+  color: rgb(190, 170, 60);
+}
+
+.danger {
+  color: red;
+}
+
+#pick-up-btn,
+#back-btn {
+  border-radius: 8px;
+  background-color: inherit;
+  padding: 0.4em 0.7em;
+}
+
+#pick-up-btn {
+  border: 1px solid green;
+  color: green;
+  &:hover {
+    background-color: green;
+    color: #fff;
+  }
+}
+
+#back-btn {
+  border: 1px solid red;
+  color: red;
+  &:hover {
+    background-color: red;
+    color: #fff;
+  }
+}
+
+#add-bar {
+  width: 98%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  ion-icon {
+    cursor: pointer;
+    font-size: 3em;
+    color: rgb(190, 170, 60);
+  }
+}
+
+ion-button {
+  --color: rgb(190, 170, 60);
+}
+
+@media screen and (max-width: 768px) {
+  #search-bar {
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .card-container {
+    width: 80%;
+    margin: 2em auto 0 auto;
+  }
+  .close-md {
+    display: none;
+  }
+  .show-md {
+    display: block;
+  }
+}

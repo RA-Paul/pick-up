@@ -1,0 +1,68 @@
+ion-title {
+  --color: rgb(190, 170, 60);
+}
+
+ion-content {
+  --background: rgb(224, 224, 224);
+  --padding-top: 2em;
+  --padding-bottom: 2em;
+}
+
+.container {
+  width: 90%;
+  box-shadow: 1px 2px 5px #a0a0a0;
+  background-color: #fff;
+  margin: auto;
+  padding: 1.5em 0em;
+}
+
+.edit-area {
+  display: flex;
+  padding: 0.2em 1em;
+  width: 100%;
+  align-items: center;
+  font-size: 1.5em;
+  p {
+    font-size: 1em;
+    width: 100px;
+    font-size: 0.8em;
+    color: rgb(160, 160, 160);
+    margin: 0.2em 0;
+  }
+}
+
+#finish-button {
+  width: 100%;
+  font-size: 2em;
+  padding: 0.2em 2em;
+  background-color: rgb(190, 170, 60);
+  color: #fff;
+  margin-top: 1em;
+  border-radius: 0.3em;
+  box-shadow: 1px 2px 5px #a0a0a0;
+}
+
+#pick-up-btn,
+#back-btn {
+  width: 100%;
+  font-size: 2em;
+  padding: 0.2em 2em;
+  margin-top: 1em;
+  border-radius: 0.3em;
+  box-shadow: 1px 2px 5px #a0a0a0;
+}
+
+#pick-up-btn {
+  background-color: green;
+  color: #fff;
+}
+
+#back-btn {
+  background-color: red;
+  color: #fff;
+}
+
+ion-button {
+  --color: rgb(190, 170, 60);
+  font-weight: bolder;
+}

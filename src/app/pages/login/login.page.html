@@ -1,0 +1,106 @@
+<ion-content>
+  <div style="width: 100%; text-align: center; margin-top: 6em">
+    <img src="assets/img/logo.png" id="logo" width="200px" />
+  </div>
+  <div style="height: 20em; margin: auto; border-radius: 0.5em" id="back1">
+    <ion-grid>
+      <ion-row
+        class="ion-align-items-center"
+        style="justify-content: center; margin-top: 3em"
+      >
+        <ion-col
+          size="11"
+          size-sm="10"
+          size-md="9"
+          size-lg="8"
+          style="display: flex"
+        >
+          <ion-icon
+            name="people"
+            style="font-size: 3em; margin-right: 0.5em"
+          ></ion-icon>
+          <input
+            placeholder="請輸入帳號..."
+            style="font-size: 2em; width: 100%; border-radius: 0.5em"
+            [(ngModel)]="username"
+          />
+        </ion-col>
+      </ion-row>
+      <ion-row
+        class="ion-align-items-center"
+        style="justify-content: center; margin-top: 0.5em"
+      >
+        <ion-col
+          size="11"
+          size-sm="10"
+          size-md="9"
+          size-lg="8"
+          style="display: flex"
+        >
+          <ion-icon
+            name="key"
+            style="font-size: 3em; margin-right: 0.5em"
+          ></ion-icon>
+          <input
+            type="password"
+            placeholder="請輸入密碼..."
+            style="font-size: 2em; width: 100%; border-radius: 0.5em"
+            [(ngModel)]="password"
+          />
+        </ion-col>
+      </ion-row>
+      <ion-row
+        class="ion-align-items-center"
+        style="justify-content: center; margin-top: 0.5em"
+      >
+        <ion-col
+          size="6"
+          size-md="5"
+          size-lg="4"
+          style="
+            text-align-last: center;
+            text-decoration: underline;
+            font-size: 1.2em;
+          "
+          ><a>註&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冊</a></ion-col
+        >
+        <ion-col
+          size="6"
+          size-md="5"
+          size-lg="4"
+          style="
+            text-align-last: center;
+            text-decoration: underline;
+            font-size: 1.2em;
+          "
+          ><a>忘記密碼</a></ion-col
+        >
+      </ion-row>
+      <ion-row
+        class="ion-align-items-center"
+        style="justify-content: center; margin-top: 0.5em"
+      >
+        <ion-col
+          size="11"
+          size-sm="10"
+          size-md="9"
+          size-lg="8"
+          style="text-align: center"
+        >
+          <button
+            style="
+              font-size: 2em;
+              width: 50%;
+              border-radius: 1em;
+              height: 1.5em;
+              background-color: #d6d6d6;
+            "
+            (click)="login()"
+          >
+            Login
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

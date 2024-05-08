@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>取貨單</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()">取消</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="edit-area">
+      <p>手寫單號</p>
+      {{ order.orderNumber }}
+    </div>
+    <div class="edit-area">
+      <p>取件日</p>
+      {{ order.date }}
+    </div>
+    <div class="edit-area">
+      <p>時間</p>
+      {{ order.time }}
+    </div>
+    <div class="edit-area">
+      <p>交貨分店</p>
+      {{ order.pickupDepart }}
+    </div>
+    <div class="edit-area">
+      <p>訂貨分店</p>
+      {{ order.orderDepart }}
+    </div>
+    <div class="edit-area">
+      <p>姓名</p>
+      {{ order.name }}
+    </div>
+    <div class="edit-area">
+      <p>連絡電話</p>
+      {{ order.phone }}
+    </div>
+    <div class="edit-area">
+      <p>產品名稱</p>
+      {{ order.item }}
+    </div>
+    <div class="edit-area">
+      <p>數量</p>
+      {{ order.quantity }}
+    </div>
+    <div class="edit-area">
+      <p>總價</p>
+      {{ order.totalPrice }}
+    </div>
+    <div class="edit-area">
+      <p>訂金</p>
+      {{ order.deposit }}
+    </div>
+    <div class="edit-area">
+      <p>餘額</p>
+      {{ order.balance }}
+    </div>
+    <div class="edit-area">
+      <p>發票號碼</p>
+      {{ order.invoice }}
+    </div>
+    <div class="edit-area">
+      <p>備註</p>
+      {{ order.note }}
+    </div>
+  </div>
+
+  <div style="width: 90%; margin: auto">
+    <ng-container *ngIf="order.status === 'Completed';else pickUp">
+      <button id="back-btn" (click)="changeStatus()">退回</button>
+    </ng-container>
+    <ng-template #pickUp>
+      <button id="pick-up-btn" (click)="changeStatus()">取貨</button>
+    </ng-template>
+  </div>
+</ion-content>

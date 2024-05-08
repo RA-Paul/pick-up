@@ -1,0 +1,114 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>新增取貨單</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="edit-row">
+      <div class="edit-area w-100">
+        <p>手寫單號</p>
+        <input [(ngModel)]="order.orderNumber" />
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>取件日</p>
+        <input type="date" [(ngModel)]="order.date" />
+      </div>
+      <div class="edit-area w-50">
+        <p>時間</p>
+        <select [(ngModel)]="order.time">
+          <ng-container *ngFor="let time of timeList;">
+            <option>{{ time }}</option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>交貨分店</p>
+        <select [(ngModel)]="order.pickupDepart">
+          <ng-container *ngFor="let depart of departList;">
+            <option>{{ depart }}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="edit-area w-50">
+        <p>訂貨分店</p>
+        <select [(ngModel)]="order.orderDepart">
+          <ng-container *ngFor="let depart of departList;">
+            <option>{{ depart }}</option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>姓名</p>
+        <input [(ngModel)]="order.name" />
+      </div>
+      <div class="edit-area w-50">
+        <p>連絡電話</p>
+        <input [(ngModel)]="order.phone" />
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>產品名稱</p>
+        <select [(ngModel)]="order.item">
+          <ng-container *ngFor="let itemName of itemNameList;">
+            <option>{{ itemName }}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="edit-area w-50">
+        <p>數量</p>
+        <select [(ngModel)]="order.quantity">
+          <ng-container *ngFor="let quantity of quantityList;">
+            <option>{{ quantity }}</option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>總價</p>
+        <input
+          type="number"
+          [(ngModel)]="order.totalPrice"
+          (change)="calculateBalance()"
+        />
+      </div>
+      <div class="edit-area w-50">
+        <p>訂金</p>
+        <input
+          type="number"
+          [(ngModel)]="order.deposit"
+          (change)="calculateBalance()"
+        />
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-50">
+        <p>餘額</p>
+        <input type="number" [(ngModel)]="order.balance" disabled />
+      </div>
+      <div class="edit-area w-50">
+        <p>發票號碼</p>
+        <input [(ngModel)]="order.invoice" />
+      </div>
+    </div>
+    <div class="edit-row">
+      <div class="edit-area w-100">
+        <p>備註</p>
+        <textarea rows="3" [(ngModel)]="order.note"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 90%; margin: auto">
+    <button id="finish-button" (click)="addOrder()">新增</button>
+  </div>
+</ion-content>

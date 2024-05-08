@@ -1,0 +1,72 @@
+ion-title {
+  --color: rgb(190, 170, 60);
+}
+
+ion-content {
+  --background: rgb(224, 224, 224);
+  --padding-top: 2em;
+  --padding-bottom: 2em;
+}
+
+.container {
+  width: 90%;
+  box-shadow: 1px 2px 5px #a0a0a0;
+  background-color: #fff;
+  margin: auto;
+  padding: 1.5em 0em;
+}
+
+.edit-row {
+  width: 100%;
+  display: flex;
+}
+
+.edit-area {
+  display: flex;
+  padding: 0.2em 1em;
+  p {
+    width: 100px;
+    font-size: 0.8em;
+    color: rgb(160, 160, 160);
+  }
+  input,
+  select,
+  textarea {
+    width: calc(100% - 100px);
+    border: 1px solid rgb(80, 80, 80);
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+#finish-button {
+  width: 100%;
+  font-size: 2em;
+  padding: 0.2em 2em;
+  background-color: rgb(190, 170, 60);
+  color: #fff;
+  margin-top: 1em;
+  border-radius: 0.3em;
+  box-shadow: 1px 2px 5px #a0a0a0;
+}
+
+@media screen and (max-width: 768px) {
+  .w-50 {
+    width: 100%;
+  }
+
+  .edit-row {
+    width: 100%;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div style="display: flex; align-items: center; gap: 5px">
+        <img src="assets/img/logo.png" alt="logo" width="35" />
+        <p style="font-weight: bolder">取貨平台</p>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>取貨清單</ion-button>
+      <ion-button (click)="toSummaryPage()">取貨進度</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="search-bar">
+    <div class="card-container w-1">
+      <p>查詢訂單<span>(單號、姓名、電話)</span></p>
+      <input [(ngModel)]="searchText" (change)="getOrders()" />
+    </div>
+
+    <div class="card-container w-2 close-md">
+      <p>顯示已取</p>
+      <select [(ngModel)]="pickedUp" (change)="getOrders()">
+        <option [ngValue]="true">是</option>
+        <option [ngValue]="false">否</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="close-md">
+      <div id="add-bar">
+        <ion-icon name="add-circle" (click)="toOrderAdd()"></ion-icon>
+      </div>
+      <table id="filter-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>時間</th>
+            <th>日期</th>
+            <th>單號</th>
+            <th>姓名</th>
+            <th>電話</th>
+            <th>產品</th>
+            <th>數量</th>
+            <th>總價</th>
+            <th>訂金</th>
+            <th>餘額</th>
+            <th>發票</th>
+            <th>訂貨分店</th>
+            <th>取貨分店</th>
+            <th>備註</th>
+            <th>狀態</th>
+            <th>編輯</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let order of orderList;let i = index;">
+            <tr [ngClass]="{'picked-up':order.status === 'Completed'}">
+              <td (click)="changeStar(i)">
+                <ng-container *ngIf="!order.star;else star;">
+                  <ion-icon name="star-outline"></ion-icon>
+                </ng-container>
+                <ng-template #star>
+                  <ion-icon name="star" id="star"></ion-icon>
+                </ng-template>
+              </td>
+              <td>{{ order.time }}</td>
+              <td>{{ order.date }}</td>
+              <td>{{ order.orderNumber }}</td>
+              <td>{{ order.name }}</td>
+              <td>{{ order.phone }}</td>
+              <td>{{ order.item }}</td>
+              <td>{{ order.quantity }}</td>
+              <td>{{ order.totalPrice }}</td>
+              <td>{{ order.deposit }}</td>
+              <td [ngClass]="{'danger':order.balance > 0}">
+                {{ order.balance }}
+              </td>
+              <td>{{ order.invoice }}</td>
+              <td>{{ order.orderDepart }}</td>
+              <td>{{ order.pickupDepart }}</td>
+              <td>{{ order.note }}</td>
+              <td>
+                <ng-container *ngIf="order.status === 'Completed';else pickUp">
+                  <button id="back-btn" (click)="changeStatus(i)">退回</button>
+                </ng-container>
+                <ng-template #pickUp>
+                  <button id="pick-up-btn" (click)="changeStatus(i)">
+                    取貨
+                  </button>
+                </ng-template>
+              </td>
+              <td>
+                <ion-icon name="create" (click)="showOrder(i)"></ion-icon>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="show-md">
+      <table id="filter-table" style="width: 80%">
+        <thead>
+          <tr>
+            <th>單號</th>
+            <th>姓名</th>
+            <th>電話</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let order of orderList;let i = index;">
+            <tr
+              [ngClass]="{'picked-up':order.status === 'Completed'}"
+              style="cursor: pointer"
+              (click)="toOrderShowPage(i)"
+            >
+              <td>{{ order.orderNumber }}</td>
+              <td>{{ order.name }}</td>
+              <td>{{ order.phone }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

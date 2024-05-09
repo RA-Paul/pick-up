@@ -73,11 +73,11 @@
               <td>{{ order.name }}</td>
               <td>{{ order.phone }}</td>
               <td>{{ order.item }}</td>
-              <td>{{ order.quantity }}</td>
-              <td>{{ order.totalPrice }}</td>
-              <td>{{ order.deposit }}</td>
+              <td>{{ order.quantity}}</td>
+              <td>{{ order.totalPrice | number:'1.0-0' }}</td>
+              <td>{{ order.deposit | number:'1.0-0' }}</td>
               <td [ngClass]="{'danger':order.balance > 0}">
-                {{ order.balance }}
+                {{ order.balance | number:'1.0-0' }}
               </td>
               <td>{{ order.invoice }}</td>
               <td>{{ order.orderDepart }}</td>

@@ -47,15 +47,15 @@
     </div>
     <div class="edit-area">
       <p>總價</p>
-      {{ order.totalPrice }}
+      {{ order.totalPrice | number:'1.0-0'}}
     </div>
     <div class="edit-area">
       <p>訂金</p>
-      {{ order.deposit }}
+      {{ order.deposit | number:'1.0-0'}}
     </div>
     <div class="edit-area">
       <p>餘額</p>
-      {{ order.balance }}
+      {{ order.balance | number:'1.0-0'}}
     </div>
     <div class="edit-area">
       <p>發票號碼</p>
